@@ -11,7 +11,7 @@ const Product = mongoose.model('Product', personSchema);
 
 exports.createProduct = (name, email, age) => {
     var product = new Person({
-        _name: name, // _name = variabel namnet, name = variabeln
+        _name: name, // _name = variabel namnet, name = variabeln.
         _productType: productType, 
         _productNumber: productNumber 
        })

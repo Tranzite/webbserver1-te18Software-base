@@ -10,7 +10,7 @@ const Person = mongoose.model('Person', personSchema);
 
 exports.createPerson = (name, email, age) => {
     var person = new Person({
-        _name: name, // _name = variabel namnet, name = variabeln
+        _name: name, // _name = variabel namnet, name = variabeln .
         _email: email, 
         _age: age 
        })

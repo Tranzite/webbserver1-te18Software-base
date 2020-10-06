@@ -10,7 +10,7 @@ db.once('open', function () {
 
 exports.storeElement = (element) => {   
   element.save(()=>{
-    console.log("Successfully saved element in database!")
+    console.log("Successfully saved element in databasee!")
   })
      
 }
