@@ -6,20 +6,17 @@ const port = 3000
 
 const clientDir = __dirname + "\\client\\"
 
+app.set('view engine', 'ejs')
+
 app.use(express.json())
 app.use(express.urlencoded())
+app.use(express.static(clientDir))
 
 app.get('/', (req, res) => {
-  res.sendFile(clientDir + "index.html")
+  res.render('pages/index.ejs', { name: " " })
 })
 
-app.get('/stilen', (req, res) => {
-  res.sendFile(clientDir + "stule.css")
-})
 
-app.get('/jesus', (req, res) => {
-  res.sendFile(clientDir + "download.jpg")
-})
 
 app.post('/', (req, res) => {
 
@@ -27,9 +24,11 @@ app.post('/', (req, res) => {
 
   dBModule.storeElement(person)
 
-  res.redirect('/')
+  let displayName = " " + req.body.name
+
+  res.render('pages/index.ejs', { name: req.body.name }) // detta är istället för res.send
 })
 
 app.listen(port, () => {
   console.log(`Example app listening on ports ${port}!`)
-}) //.
+}) 
