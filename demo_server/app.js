@@ -1,6 +1,7 @@
 const express = require('express')
 const dBModule = require('./dBModule')
 const personModel = require('./PersonModel')
+const messageModel = require('./MessageModel')
 const app = express()
 const port = 3000
 
@@ -17,6 +18,20 @@ app.get('/', (req, res) => {
 })
 
 
+app.get('/messages', async (req, res) => {
+  let messages = await messageModel.getAllMessages()
+  res.render("pages/messages.ejs", { names: messages})
+})
+
+
+
+app.post('/messages', (req, res) => {
+  let message = messageModel.createMessage(req.body.name, req.body.message)
+
+  dBModule.storeElement(message)
+
+  res.render('pages/messages.ejs', { name: req.body.name})
+})
 
 app.post('/', (req, res) => {
 

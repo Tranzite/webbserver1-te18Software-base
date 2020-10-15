@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/messages" method="post">
+        <input type="text" name="name" placeholder="Namn">
+        <input type="email" name="email" placeholder="example@email.com">
+        <button type="submit">Okej</button>
+
+    </form>
+    <% for( let i = 0; i < names.length; i++ ) { %>
+        <h1><%- names[i].email %> </h1>
+    <% } %>
+</body>
+</html>
