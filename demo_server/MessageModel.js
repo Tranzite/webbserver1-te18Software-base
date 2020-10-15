@@ -6,7 +6,7 @@ const messageSchema = new mongoose.Schema({
     
 });
   
-const Message = mongoose.model('Message', personSchema);
+const Message = mongoose.model('Message', messageSchema);
 
 exports.createMessage = (name, message) => {
     var message = new Message({
